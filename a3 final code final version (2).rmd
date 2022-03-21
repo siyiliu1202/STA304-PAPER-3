@@ -1,0 +1,517 @@
+---
+title: "Employees With Varying Income Levels and Attitudes Towards Work"
+author: 
+- Xiaoyuan Xing
+- Siyi Liu
+- Jiayi Wu
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  pdf_document: default
+  bookdown::pdf_document2: default
+abstract: How to effectively advertise a pay raise has become a hot subject in contemporary culture. The purpose of this paper is to identify a path to income growth and to investigate the feasibility of individuals improving their income through a change in their attitude toward work, by examining the relationship between work attitude and income using a linear regression model based on the 2016 General Social Survey on Canadians at Work and Home. The paper is divided into four parts. The data section provides an overview of the database for this research, including information about the data source, the names and definitions of all variables, and an overview of the data analysis process, which includes a step-by-step data cleaning process and exploratory data analysis using boxplots and tables. A simple linear regression model is constructed, and the findings from model are displayed in the outcome section through multiple scatter plots and tables. The discussion section discusses the research's conclusion and the reasonable interpretation of the statistical data. In general, this study establishes a connection between work ethic and personal income from a number of perspectives and suggests that people should work with a positive attitude, in order to earn more income. The survey is aimed to gather data in a variety of categories and to provide more specific information on employee work attitudes for future research.
+bibliography: ref_list.bib
+thanks: 'Code and data are available at: https://github.com/siyiliu1202/STA304-PAPER-3.git'
+---
+
+```{r set up, include=FALSE}
+library(tidyverse)
+library(kableExtra)
+data <- read.csv("DATASET2.csv")
+# library("IRdisplay")
+#![surveyqrcode](https://drive.google.com/file/d/1MxeQRmV8t3nqt22IcHm7qeP9obUfIHok/view?usp=sharing)
+```
+
+
+# Introduction
+
+## Background\
+
+How to promote a salary increase has progressively become a prominent topic in today's
+society. To begin comprehending the issue, one must first consider the forces that influence it.
+The factors affecting promotion and income increases are numerous and complex. Such as
+individual ability, attitude, talent, fortune, opportunity, social environment, and interpersonal
+relationships inside the organization, among others.\
+External variables cannot be changed easily; internal factors, on the other hand, have greater
+leeway to operate. Among the numerous elements affecting income, the primary internal
+reasons are one's personal ability and attitude toward work. It is obvious that advanced
+personal skills frequently result in increased income, and managers and employees commonly
+place a higher premium on competence than on attitude. However, the reality is that
+improving work ability frequently needs a significant time investment, and it is relatively
+easier to modify one's subjective work attitude in order to increase employees' work
+performance more efficiently and, eventually, boost the employee's pay level. The research
+from [@Randhawa] confirms that employees who were satisfied with their jobs and with
+high self-efficacy beliefs produced more than those who were dissatisfied with their jobs and
+low self- efficacy beliefs. People with High job satisfaction and high self-efficacy beliefs
+means they have a positive attitude to work, and producing more means those employees help
+their companies earn more profits, which increase their own salaries as well. In this way, it is
+obvious, there may exist a positive relationship between working attitude and one’s income.\
+
+The purpose of this paper is to examine the relationship between work attitude and income by
+examining people's attitudes, cognition, and feelings toward various work situations,
+beginning with their personal attitude toward work, in order to identify one path to income
+growth and to investigate the feasibility of people improving their income by changing their
+attitude toward work.\
+
+The dataset will be processed in R [@r] through packages tidyverse [@tidy] and dplyr [@dplyr]. Figures and tables will be produced and generated through packages ggplot2 [@ggplot2], kableExtra [@kable] and knitr [@knitr].\
+
+## Structure of Research\
+
+This research is based on the dataset from 2016 General Social Survey (GSS) on Canadians
+at Work and Home [@GSS]. Particularly, This paper uses the dataset regarding how Canadians
+feel about their workplace by asking questions on how they relate to their work,such as work ethic, job satisfaction, motivation and so on. In addition, the date of personal income should also be used to measure the relationship between the income level and working attitude by method of simple linear regression model. The
+population of this research is all Canadians aged 15 years and older in 2016, with the
+exception of the following: 1. Inhabitants of the Yukon, Northwest Territories, and Nunavut;
+and 2. Full-time residents of institutions. The whole paper is separated into 4 main sections:
+Data, Result, Discussion and Survey, which would be introduced with details in the following
+paragraphs.\
+
+## Introduction of Data Section\
+
+The data section gives a picture about how the database of this research looks like with
+details of the resource of data, what kind of variables are included in the database, and what
+is the actual meaning of each variable. In addition, the step by step data cleaning process and
+exploratory data analysis with boxplot and table are conducted. After data cleaning, there are
+9 variables in total. We recognize independent variables are Being happy when working hard,
+Cannot wait to leave work at the end of the day, Extra effort to get the job done without
+reward, Take pride in own work, Being happiest if never had to work again in life, Working
+drains energy from more important things, Best reward from working - Sense of
+accomplishment, Admiration for those who work hard. All independent variables are
+measured by a scale from 0 to 10, where 0 being ’completely disagree’ and 10 being
+’completely agree’ of the statement regarding relative variables. Dependent variable is
+Income - Personal income group (before tax).\
+
+## Introduction of Result Section\
+
+Simple linear regression model is built and results of the model are illustrated with several
+scatter plots and tables in the result section. The linear regression model shows that the
+relationship between “being happy when working hard” and personal income is
+inconspicuous, which means the happiness level when people work hard doesn’t affect wages
+a lot. There is a strong positive linear relationship between “ Take pride in their own work”
+and income level, which is identical with the assumptions based on real life common sense.
+People who disagree with the statement “Can’t wait to leave work at the end of the day” at a
+stronger level do earn more income, since there exists a negative relationship between them.\
+
+## Introduction to Discussion Section\
+
+The discussion section explains the conclusion of this research and what is the realistic
+meaning behind the statistical results. This paper finds there exists a link between work ethic
+and personal income from a variety of angles and argues that individuals should approach
+work positively. The statistics in this research indicate that the majority of people have a
+favorable attitude toward employment, albeit the degree to which they have a favorable
+attitude varies somewhat. This notion is consistent with the widespread belief that strong
+work ethics and attitudes enhance productivity and income greatly. In addition, the
+limitations, weakness, and direction of future study are also described in the discussion
+section.\
+
+## Introduction to Survey and Future Study\
+
+While collecting data, it is critical to decompose categories and avoid categorizing all people
+by a single attribute, which implies we must respect individual distinctions. Additionally,
+academic research should be as precise as possible in its data categorization. Therefore, a new
+survey is designed to collect data in various categories with more detailed information to
+measure employee’s working attitude.\
+This survey evaluates the impact of income on employees' work attitudes from a variety of
+levels, including what employees think and do when their salary is increased or decreased, as
+well as the likely effect of many external factors on work attitudes (gender, age, and marital
+status). The survey's primary audience is company staff, and it is conducted anonymously.
+This survey is significant because it may serve as a benchmark for some organizations as they
+develop their remuneration systems, as well as aid executives in better understanding the employee perceptions.\
+
+
+# Data 
+
+Canada's population size and demographics have changed dramatically in recent years. Several social and economic issues have come to light that has directly led to changes in the relationship between work, lifestyle and social well-being. Therefore, to discuss this relationship, the first objective of the GSS is to collect data on social trends to monitor Canadians' living conditions and welfare policies. Immediately following the second purpose is to provide information on social policy issues that can help government departments make decisions that benefit residents and map how family and leisure activities can reflect the functioning of Canadian culture. So these two points are the primary purposes of the GSS.\
+
+The GSS survey framework comprises two parts: 1. a list of telephone numbers in use, obtained by Statistics Canada from various sources (telephone companies, census, etc.) 2. address registers, a list of all residences in the ten provinces. The 2016 GSS targets a population that includes Canadian residents 15 years of age and older but excludes the Yukon, Northwest Territories and Nunavut, and full-time residents of institutions. A significant source of non-sampling error in the survey is the effect of non-response on survey results and conclusions. The GSS handles total non-response by adjusting the weights of households that respond to the survey to compensate for those that do not obtain more informative data. In most cases, partial non-response to the survey occurs when respondents do not understand or are sensitive to some questions or have forgotten the requested information. This non-response should also be considered when doing data integration.\
+
+## Introduction to Variables
+
+There are numerous variables in our dataset that describe the expression type for each individual who is now employed, as well as their feelings about working in their daily lives.\
+
+An additional variable, "Code," refers to a scale from 0 to 10, with 0 representing "completely disagree" and 10 representing "completely agree" with all of the expression types regarding working.\
+
+## Data Cleaning
+
+1. The original dataset contains 11 variables (in columns) and 19609 cases (in rows), as the objective is to determine whether there is a relationship between the eight distinct types of working expressions and an individual's personal income — that is, whether a person with a more engaged and motivated attitude is more capable of earning more. Evidently, the variable "famincg2" is unnecessary for the remainder of our discussion, as it corresponds to the family income of the family income group (before tax), it is presumed that family income does not have a statistically significant association with or have a direct impact on the expression type of working; as a result, this variable is removed from the dataset using the "select" function.\
+
+2. The variable "Code" represents a scale indicating the degree to which they agree with each of the expressions of their professional responsibilities. When a number is assigned to each working expression on the scale, with 96 denoting valid skip, 97 denoting don't know, 98 denoting refusal, and 99 denoting not stated, these responses are deemed ineffective since they lack the motivation to indicate their attitude toward each working expression. In order to choose data whose values are less than 96, it is required to utilize the function "filter," which selects only data whose values are between 0 and 10. As a result, the dataset after the cleaning process will only contain values that are between 0 and 10.\
+
+3. To acquire a better understanding of each variable, it is essential that each variable name be changed to reflect the true meaning of the variable, which may be accomplished by utilizing the "rename" function.\
+
+
+### Table 1: Description of Each Variable in the Chosen Dataset After Data Cleaning
+
+|Variable Name(s)|Changed Variable Name (Variable Description) |
+|---------------|---------------------|
+|wer_01|Being happy when working hard |
+|wer_03|Cannot wait to leave work at the end of the day|
+|wer_04|Extra effort to get the job done without reward|
+|wer_05|Take pride in own work|
+|wer_06|Being happiest if never had to work again in life|
+|wer_07|Working drains energy from more important things |
+|wer_08|Best reward from working - Sense of accomplishment|
+|wer_09|Admiration for those who work hard|
+|ttlincg2|Income - Personal income group (before tax)|
+
+
+```{r, include = FALSE}
+# data cleaning
+data <- data%>%
+  select(-"famincg2")%>%
+  filter(wer_01<96&wer_03<96&wer_04<96&wer_05<96&wer_06<96&wer_07<96&wer_08<96&wer_09<96&ttlincg2<96)%>%
+  rename(`Being happy when working hard`="wer_01",
+         `Cannot wait to leave work at the end of the day`="wer_03",
+         `Extra effort to get the job done without reward`="wer_04",
+         `Take pride in own work`="wer_05",
+         `Being happiest if never had to work again in life`="wer_06",
+         `Working drains energy from more important things`="wer_07",
+         `Best reward from working - Sense of accomplishment`="wer_08",
+         `Admiration for those who work hard`="wer_09",
+         `Income - Personal income group (before tax)`="ttlincg2")
+```
+
+\newpage
+
+## Exploratory Data Analysis
+
+Figure 1: The Boxplot of All Variables Regarding to Work Ethic 
+
+```{r,fig.height=8,fig.width=10, echo=FALSE, warning=FALSE}
+data%>%
+  gather(key = "variable",value = value,-"CASEID")%>%
+  filter(variable!="Income - Personal income group (before tax)") %>%
+  ggplot(aes(variable,value,fill=variable)) +
+  geom_boxplot()+
+  theme_classic()+
+  labs(x="Expression of Working",y="Scale from 0 to 10",title = "Figure 2: The Boxplot of All Expressions of Working", caption="A scale from 0 to 10, with 0 representing completely disagree and 10 representing completely agree with all of the expression types regarding working.")+
+  theme(legend.position = "none",
+        axis.text.x = element_text(angle = 70, hjust = 0.9, vjust = 0.94),
+        plot.title = element_text(hjust = 0.5))+
+  scale_fill_brewer(palette = "Pastel1")
+```
+
+
+Specifically, according to Figure 1, the graph above combines all of the boxplots for each of eight expressions of working by people who are now employed. Figure 2: During the workday, the x-axis depicts each sort of expression, and the y-axis shows the degree to which each individual agrees with each type of expression.\
+
+Regarding the expression of admiration for those who work hard, at least half proportion of population completely agree with it, however, there is some outliers.\
+
+Regarding the expression of being happiest if never had to work again in life, at least half of the population is either neutral or agrees with this claim.\
+
+Regarding the expression of being happy when working hard, the mean value of the scale is slightly higher than 7.5, indicating that the vast majority of people believe it to be true. However, there are three outliers. \
+
+Regarding the expression of best reward from working - sense of accomplishment, which is expressed similarly to the preceding phrase. The mean value of the scale is slightly above 7.5, showing that the vast majority of individuals agree with this expression. However, there are three outliers.\
+
+Regarding the expression of cannot wait to leave work at the end of today, more than half of those who voted are either neutral or agree with it.\
+
+Regarding the expression of extra effort to get the work done without rewards, the mean value is slightly above 8, indicating that the vast majority of people have the motivation to put in extra effort without receiving compensation, indicating that they are extremely enthusiastic about their jobs. However, there are 5 outliers. \
+
+Regarding the expression of taking pride in own work, the majority of individuals absolutely agree with the statement since they are proud to be employed at their current positions. However, there are 8 outliers. \
+
+Regarding the expression of working drains energy from the more important things, the majority of people do not agree with the statement that working takes energy away from more essential activities because they believe that working is important enough and does not take energy away from doing other things, according to the survey.\
+
+
+Figure 2: Mean of Estimation of the Linear Regression Model
+
+```{r, echo=FALSE, warning=FALSE}
+# Summary the numeric table for Linear Regression results
+summary_table1 <- data %>%
+  gather(key = "variable",value = value,-"CASEID")%>%
+  group_by(variable)%>%
+  summarise(mean = round(mean(value),2),
+            median = median(value),
+            max = max(value),
+            min = min(value))
+# # Construct table
+knitr::kable(summary_table1, caption = "Table 1: Mean of Estimation of the Linear Regression Model") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(latex_options = "hold_position")
+```
+
+The mean, median, maximum, and minimum values for each of the expression types are shown in the preceding Table 1, which clearly demonstrates that the majority of people agree with the phrases "Take pride in own work" and "Admiration for those who work hard" as they have the greater mean value and median value. Because they are proud to be in their current position and admire individuals who work diligently to complete duties during the workday, it is obvious that they have motivation, passion, and a positive attitude about their occupations. While it is to be believed that individuals who have a more positive attitude toward their work are more likely to earn more money, this is something that needs to be investigated more throughout the linear regression model's plotting.\
+
+\newpage
+
+# Result
+
+Figure 3: Linear Relationship between Income and Work Ethic Variables
+
+```{r,fig.width=12,fig.height=6, echo=FALSE, warning=FALSE}
+# Build linear regression model
+data%>%
+  select(c(1,2:5,10))%>%
+  gather(key = "variable",value = value,
+         -c("CASEID",`Income - Personal income group (before tax)`))%>%
+ ggplot(aes(value,`Income - Personal income group (before tax)`,col=variable))+
+  geom_point(size=0.7)+
+  geom_smooth(formula = y ~ x,method = "lm",se=F,col="red")+
+  facet_wrap(~variable)+
+  theme_classic()+
+  theme(legend.position = "none")+
+  scale_fill_brewer(palette = "Pastel1")+
+  labs(x="",title="",caption="")+
+  scale_x_continuous(breaks = seq(0,10,1))
+
+data%>%
+  select(c(1,6:9,10))%>%
+  gather(key = "variable",value = value,
+         -c("CASEID",`Income - Personal income group (before tax)`))%>%
+ ggplot(aes(value,`Income - Personal income group (before tax)`,col=variable))+
+  geom_point(size=0.7)+
+  geom_smooth(formula = y ~ x,method = "lm",se=F,col="red")+
+  facet_wrap(~variable)+
+  theme_classic()+
+  theme(legend.position = "none")+
+  scale_fill_brewer(palette = "Pastel1")+
+  labs(x="",title="",caption="")+
+  scale_x_continuous(breaks = seq(0,10,1))
+```
+
+```{r,message=FALSE, echo=FALSE, include=FALSE}
+# Summary of result from linear regression models 
+model1 <- lm(`Income - Personal income group (before tax)`~`Being happy when working hard`,data )
+result1 <- summary(model1)
+result1 $ coefficients
+
+model2 <- lm(`Income - Personal income group (before tax)`~`Cannot wait to leave work at the end of the day`,data )
+result2 <- summary(model2)
+result2 $ coefficients
+
+model3 <- lm(`Income - Personal income group (before tax)`~`Extra effort to get the job done without reward`,data )
+result3 <- summary(model3)
+result3 $ coefficients
+
+model4 <- lm(`Income - Personal income group (before tax)`~`Take pride in own work`,data )
+result4 <- summary(model4)
+result4 $ coefficients
+
+model5 <- lm(`Income - Personal income group (before tax)`~`Being happiest if never had to work again in life`,data )
+result5 <- summary(model5)
+result5 $ coefficients
+
+model6 <- lm(`Income - Personal income group (before tax)`~`Working drains energy from more important things`,data )
+result6 <- summary(model6)
+result6 $ coefficients
+
+model7 <- lm(`Income - Personal income group (before tax)`~`Best reward from working - Sense of accomplishment`,data )
+result7 <- summary(model7)
+result7 $ coefficients
+
+model8 <- lm(`Income - Personal income group (before tax)`~`Admiration for those who work hard`,data )
+result8 <- summary(model8)
+result8 $ coefficients
+```
+
+
+Figure 4: Result of Linear Regression Model 
+```{r , echo=FALSE}
+# Construct table
+library(broom)
+knitr::kable(tidy(model1), caption = "Being happy when working hard") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(latex_options = "hold_position")
+
+knitr::kable(tidy(model2), caption = "Being happy when working hard") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(latex_options = "hold_position")
+
+knitr::kable(tidy(model3), caption = "Being happy when working hard") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(latex_options = "hold_position")
+
+knitr::kable(tidy(model4), caption = "Being happy when working hard") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(latex_options = "hold_position")
+
+knitr::kable(tidy(model5), caption = "Being happy when working hard") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(latex_options = "hold_position")
+
+knitr::kable(tidy(model6), caption = "Being happy when working hard") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(latex_options = "hold_position")
+
+knitr::kable(tidy(model7), caption = "Being happy when working hard") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(latex_options = "hold_position")
+
+knitr::kable(tidy(model8), caption = "Being happy when working hard") %>%
+  kable_classic(full_width = F, html_font = "Cambria") %>%
+  kable_styling(latex_options = "hold_position")
+```
+
+
+According to the graphs under "Being happy when working hard", there is a minor negative correlation between those who primarily agree with the term and their related income. By looking at the table, it is shown that the intercept of the model is 2.94 and its slope is -0.01, which again indicates its slight negative correlation between x and y values.\
+
+According to the graphs under "Cannot wait to leave work at the end of the day", there is a slight negative relationship between those who primarily agree with the statement and their corresponding income. By looking at the table, it is shown that the intercept of the model is 3.04 and its slope is -0.04, which again indicates its slight negative correlation between x and y values.\
+
+According to the graphs under "Extra effort to get the job done without reward", there is a slight positive relationship between individuals who mostly agree with the expression and their corresponding income, indicating that individuals who are more likely to put in extra effort to complete tasks during work hours without expecting compensation earn a higher income. By looking at the table, it is shown that the intercept of the model is 2.73 and its slope is 0.01, which again indicates its slight positive correlation between x and y values.\
+
+According to the graphs under "Take pride in own work", there is a positive relationship between individuals who mostly agree with the expression and their corresponding income, implying that if each individual's degree of agreement with the expression above is high, in other words, if people take pride in their own work, they will earn a higher income.By looking at the table, it is shown that the intercept of the model is 2.10 and its slope is 0.07, which again indicates its positive correlation between x and y values.\
+
+According to the graphs under "Admiration for those who work hard", there is a negative correlation between the individuals who most strongly agree with the term and their associated wealth. By looking at the table, it is shown that the intercept of the model is 3.51 and its slope is -0.07, which again indicates its negative correlation between x and y values.\
+
+According to the graphs under "Being happiest if never had to work again in life", the association between individuals who mostly agree with the expression and their associated income is unclear, since income remains constant regardless of an individual's attitude toward this expression type. By looking at the table, it is shown that the intercept of the model is 2.81 and its slope is 0.007, due to its small value of slope, it again indicates its correlation between x and y values is unclear.\
+
+According to the graphs under "Best reward from working - Sense of accomplishment", there is a negative correlation between the individuals who most strongly agree with the phrase and their associated income. By looking at the table, it is shown that the intercept of the model is 3.05 and its slope is -0.02, which again indicates its negative correlation between x and y values.\
+
+According to the graphs under "Working drains energy from more important things", there is a slight positive relationship between individuals who mostly agree with the expression and their corresponding income, implying that people who believe work drains energy from other activities will earn a higher income. By looking at the table, it is shown that the intercept of the model is 2.80 and its slope is 0.01, which again indicates its slight slight positive correlation between x and y values.\
+
+It is true that only those who strongly agree with the statements "Extra effort to get the job done without reward","Take pride in own work", and "Working drains energy from more important things" have higher incomes, which is completely contrary to the assumption; however, not all of those who have a more positive attitude toward their job have higher incomes.\
+
+
+# Discussion
+
+## What is done in this this paper?\
+
+  This paper analyzes the relationship between individual work ethics and income from
+different perspectives and its potential impact on social development, which is of great
+importance to both individuals and companies. The original survey categorized the
+performance of individuals' work ethics, such as their perceptions of overtime work and their
+moods at work, which are indicators of each individual's work ethic and attitude. In other
+words, the subject of our study is the impact of an individual's work ethic on their income.
+First, we analyze the different manifestations of the eight ethics, intending to study which
+ethical standards are the most shared. However, these eight different types of work ethics do
+not imply that they are positive; for example, rushing off work is a relatively negative
+manifestation.\
+
+  Furthermore, we use some statistical reference values (e.g., mean, median, etc.) to
+investigate the prevalence of work ethic perceptions in individuals' perceptions. The
+significance of this step is that it can help leaders understand the inner workings of their
+employees to develop more reasonable rules and regulations and visualize the essential
+attitudes of most individuals toward their work. The data in this paper show that most
+individuals have positive attitudes toward work, although they vary slightly in degree.
+Secondly, the linear regression model analyzed the relationship between work ethic and
+individual earnings. This view aligns with the public perception that good work ethics and
+work attitudes will significantly increase productivity and, therefore, income. Overall, this
+paper presents the potential relationship between work ethic and personal income from
+different perspectives and advocates that people should face work positively.\
+
+## What is something that we learn about the world?\
+
+  This paper demonstrates that having a good work ethic can lead to a better income.
+Moreover, through this study, we also understand the truth that "you get what you pay for"[@Webster].
+A person who is serious about his work will naturally gain a lot. An individual's attitude
+towards work can directly affect the income and the efficiency of acquiring skills. The key to
+the difference between proactivity and passivity is the attitude toward life and work. We all
+work for different purposes and with different results, and one of the main reasons for the gap
+is attitude. A good work attitude is a prerequisite for our success. The more profound factor
+determining one's salary and income is no more comprehensive knowledge and skills perse,
+but the attitude towards life and work and professional ethics[@AAJP]. A hostile work attitude will
+make individuals feel worse and worse and work more and more passively, thus leading to a
+rapid decline in work efficiency. As a result, income becomes increasingly meager, seriously
+affecting work, life, and health. This will make the individual live in a negative mood all day
+long, not enjoying the work, and unconsciously spread the negative emotions to more people.\
+
+  A person's work attitude and work ethic directly determine whether he or she will do
+his or her best, or whether he or she will do his or her job in a perfunctory manner, and
+whether he or she will rest on his or her laurels or be aggressive. The more positive the
+attitude, the greater the determination, and thus the more effort is put into the work, and the
+return obtained from work is correspondingly more desirable. Especially in some not very
+technical positions, most people can do it, and the only thing that can add weight to
+performance is individual attitude. Successor failure usually depends on whether we have a
+proactive work ethic when we do something. So work attitude often determines everything.
+Showing a positive and proactive work attitude at work means being willing to take
+responsibility and having a strong sense of work responsibility and a professional ethic and
+establishing a good work ethic, developing good professional qualities, taking work seriously,
+and doing one's job to the best of one's ability. At this point, attitude is the ability to
+differentiate yourself from others and make yourself important. It does not matter how large
+or complex your organization is; everyone can do something in that organization. Moreover,
+performance excellence requires a positive work attitude and a work ethic.\
+
+## What are some weaknesses of what was done?\
+
+- In this paper, we analyze the variables in the database, and we assume that each
+individual is in a similar environment. However, a persuasive paper should
+incorporate the general political and economic environment and the work situation of
+each individual. Therefore, the first shortcoming of this paper is that it does not take
+into account the actual situation in 2016. Take Covid-19, for example, a viral outbreak
+can cause harm in any field, and even if individuals have a strong work ethic and a
+good work ethic, they cannot stop the decline in wages[@ILO]. The outbreak has had a
+dramatic impact on the world economy, severely affecting the wage income of
+residents and the wage income of migrant workers and significantly affecting the
+pattern of income distribution and further exacerbating income distribution inequality.
+Therefore, when completing the paper, we should analyze it in the context of the
+economic and political environment of the year.\
+
+- The classification of the original database was not meticulous, resulting in too
+existential and uncritical findings. This data only classifies eight different professional
+ethics and does not define and classify the career field of each sample and the salary
+range of different occupations. In other words, the base salaries of restaurant waiters
+and software engineers are different, and there is a large gap. It leads to the fact that
+no matter how severe a restaurant server's work attitude is, it is difficult for this
+individual to earn more than a software engineer with a hostile work attitude because
+there is a big difference in their base salaries. However, the paper only analyzed the
+impact of work ethic on income and did not consider the pay levels of different work
+areas. This paper does not study the different career fields and salary ranges, so for
+some career fields, this paper's findings are somewhat inaccurate. However, we
+cannot deny that a good work attitude and work ethic are essential for future career
+development, regardless of the career field.\
+
+- This paper is based on data from 2016, after six long years in which the economic
+environment and the world's political situation have changed significantly. The salary
+level of the population and the gap between rich and poor are different from 2016, and
+we should collect some recent data to support the ideas of this paper.\
+
+## What is left to learn or how should we proceed in the future? \
+
+  First of all, through this study, we understand that an individual's work attitude
+determines the decisive role in the work and even in the life of a person. It is essential to have
+a positive, optimistic and affirmative attitude towards any work and anything, have a strong
+sense of responsibility, and gain rich rewards[@BND]. Individuals should hold a high sense of
+responsibility and dedication in the workplace. Sense of responsibility should not be imposed
+from outside but should be an internal self-need. A person with a sense of responsibility is
+certainly a dedicated person who respects his or her job and shows loyalty and dedication to
+the work.\
+
+  Secondly, academically, we learned how to use different perspectives to analyze
+problems through this research. As well as the need to relate the data provided to the natural
+environment not just mechanically analyze the data, so that the report made is persuasive. In
+the subsequent academic research, the analysis should be done in the context of the social
+environment of the time. Furthermore, when collecting data, it is essential to break down the
+categories and not explain all individuals with a single characteristic, which means we have
+to respect the differences. Furthermore, academic research should categorize the data as
+carefully as possible.\
+
+\newpage
+# Appendix
+## Survey
+
+  This survey focuses on the impact of salary on employees' work attitude from different perspectives, such as what employees think and what they do when their salary is increased or decreased, as well as exploring the potential impact of different external factors (gender, age, and marital status) on work attitudes.The audience of this survey is mainly the employees of the company and the survey is conducted anonymously. The significance of this survey is that it can give reference data for some companies in developing salary structure, and it can also help leaders to better understand the thoughts of employees. \
+  \
+  Follow the link to our survey or scan our QR code to survey: https://docs.google.com/forms/d/e/1FAIpQLSeCrYE3ZvCvM5FWXp2F9Zw9M0Zj4FC21HSB7E2mAHavJMf9OA/viewform?usp=pp_url
+  
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \
+  \newpage
+  
+  Figure 5: QR Code for the survey \
+  \
+  The following images show the letter that was mailed to respondents and screenshots of the survey questions.
+  
+  \newpage
+  Figure 6: Screenshot of survey question 1-6.
+  \newpage
+  Figure 7: Screenshot of survey question 7-12.
+  \newpage
+  Figure 8: Screenshot of survey question 13-18.
+  \newpage
+  Figure 9: Screenshot of survey question 19-24.
+  \newpage
+  
+\newpage
+# Reference
+
